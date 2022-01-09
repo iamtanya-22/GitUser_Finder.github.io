@@ -2,6 +2,29 @@ class UI{
   constructor() {
     this.profile=document.getElementById('profile');
   }
+
+  //show alert message
+  showAlert(message,className){
+    this.clearAlert();
+    const div=document.createElement('div');
+    div.className=className;
+    div.appendChild(document.createTextNode(message));
+    const container=document.querySelector('.searchContainer');
+    const search=document.querySelector('.search');
+    container.insertBefore(div,search);
+    setTimeout(()=>{
+    this.clearAlert();
+    },3000);
+  }
+
+  //clear alert message
+  clearAlert(){
+    const currentAlert=document.querySelector('.alert');
+    if(currentAlert{
+      currentAlert.remove();
+    })
+  }
+
   showProfile(user)
   {
     this.profile.innerHTML='
@@ -27,5 +50,8 @@ class UI{
           </div>
       </div><h3 class="page-heading mb-3">Latest Repos</h3><div id="repos"></div>
       ';
+  }
+  clearProfile(){
+    this.profile.innerHTML='';
   }
 }
